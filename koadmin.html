@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="pl" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Krzysztof Olszewski | Inżynier Infrastruktury IT</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Space Grotesk', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            light: '#2563EB', // Royal Blue
+                            dark: '#06B6D4',  // Neon Cyan
+                            accent: '#7C3AED', // Violet
+                        }
+                    },
+                    backgroundImage: {
+                        'circuit-light': "url('data:image/svg+xml,%3Csvg width=\"80\" height=\"80\" viewBox=\"0 0 80 80\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cg fill=\"none\" fill-rule=\"evenodd\"%3E%3Cg fill=\"%239C92AC\" fill-opacity=\"0.08\"%3E%3Cpath d=\"M40 40c0-8.8-7.2-16-16-16s-16 7.2-16 16c0 8.8 7.2 16 16 16s16-7.2 16-16zM0 0h40v40H0V0zm40 40h40v40H40V40zm0-40h20v20H40V0z\"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')",
+                        'circuit-dark': "url('data:image/svg+xml,%3Csvg width=\"80\" height=\"80\" viewBox=\"0 0 80 80\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cg fill=\"none\" fill-rule=\"evenodd\"%3E%3Cg fill=\"%2330363d\" fill-opacity=\"0.4\"%3E%3Cpath d=\"M40 40c0-8.8-7.2-16-16-16s-16 7.2-16 16c0 8.8 7.2 16 16 16s16-7.2 16-16zM0 0h40v40H0V0zm40 40h40v40H40V40zm0-40h20v20H40V0z\"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')",
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .glass {
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .clip-geo {
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 95% 100%, 0 100%);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-slate-800 dark:bg-slate-900 dark:text-slate-100 transition-colors duration-300 antialiased selection:bg-brand-light selection:text-white dark:selection:bg-brand-dark dark:selection:text-slate-900">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 glass border-b border-gray-200 dark:border-slate-800 transition-colors duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex items-center space-x-2">
+                    <div class="w-8 h-8 bg-brand-light dark:bg-brand-dark text-white dark:text-slate-900 flex items-center justify-center font-bold text-sm rounded-sm">KO</div>
+                    <span class="font-display font-bold text-xl tracking-tight">Krzysztof Olszewski</span>
+                </div>
+                
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="#about" class="text-sm font-medium hover:text-brand-light dark:hover:text-brand-dark transition">O mnie</a>
+                    <a href="#expertise" class="text-sm font-medium hover:text-brand-light dark:hover:text-brand-dark transition">Kompetencje</a>
+                    <a href="#projects" class="text-sm font-medium hover:text-brand-light dark:hover:text-brand-dark transition">Projekty</a>
+                    <a href="#contact" class="px-5 py-2.5 text-sm font-semibold text-white bg-slate-900 dark:bg-white dark:text-slate-900 hover:bg-brand-light dark:hover:bg-brand-dark transition duration-300 rounded-sm">Kontakt</a>
+                    
+                    <!-- Theme Toggle -->
+                    <button id="theme-toggle" class="w-10 h-10 rounded-full flex items-center justify-center border border-gray-300 dark:border-slate-700 hover:bg-gray-100 dark:hover:bg-slate-800 transition">
+                        <i class="fas fa-moon dark:hidden text-slate-600"></i>
+                        <i class="fas fa-sun hidden dark:block text-brand-dark"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
+        <!-- Background Pattern -->
+        <div class="absolute inset-0 bg-circuit-light dark:bg-circuit-dark z-0 opacity-40"></div>
+        <div class="absolute inset-0 bg-gradient-to-b from-transparent to-gray-50 dark:to-slate-900 z-0"></div>
+        
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <div class="inline-flex items-center space-x-2 px-3 py-1 mb-6 border border-brand-light/30 dark:border-brand-dark/30 rounded-full bg-brand-light/5 dark:bg-brand-dark/5">
+                        <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+                        <span class="text-xs font-semibold uppercase tracking-wider text-brand-light dark:text-brand-dark">Dostępny od 2025</span>
+                    </div>
+                    <h1 class="font-display text-5xl lg:text-7xl font-bold leading-tight mb-6 text-slate-900 dark:text-white">
+                        Bezpieczna <br>
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-light to-brand-accent dark:from-brand-dark dark:to-brand-accent">Infrastruktura IT</span>
+                    </h1>
+                    <p class="text-lg text-slate-600 dark:text-slate-400 mb-8 max-w-xl leading-relaxed">
+                        Jako Administrator Systemów IT łączę 10 lat doświadczenia w zarządzaniu infrastrukturą hybrydową z wymogami bezpieczeństwa (NIS2). Gwarantuję ciągłość biznesową dla wymagających sektorów.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="#contact" class="inline-flex justify-center items-center px-8 py-4 text-base font-bold text-white bg-brand-light dark:bg-brand-dark dark:text-slate-900 hover:opacity-90 transition shadow-lg shadow-brand-light/25 dark:shadow-brand-dark/25 rounded-sm">
+                            Rozpocznij współpracę
+                        </a>
+                        <a href="#expertise" class="inline-flex justify-center items-center px-8 py-4 text-base font-bold text-slate-700 dark:text-slate-300 border border-slate-300 dark:border-slate-600 hover:bg-slate-100 dark:hover:bg-slate-800 transition rounded-sm">
+                            Zobacz Portfolio
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Geometric Visual Element -->
+                <div class="relative hidden lg:block">
+                    <div class="absolute inset-0 bg-gradient-to-tr from-brand-light to-brand-accent dark:from-brand-dark dark:to-brand-accent opacity-20 blur-3xl rounded-full"></div>
+                    <div class="relative bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 p-8 rounded-sm shadow-2xl clip-geo">
+                        <div class="flex justify-between items-center mb-8 border-b border-slate-100 dark:border-slate-700 pb-4">
+                            <span class="font-mono text-sm text-slate-500">SYSTEM_STATUS</span>
+                            <span class="font-mono text-sm text-green-500">● ONLINE</span>
+                        </div>
+                        <div class="space-y-4 font-mono text-sm">
+                            <div class="flex justify-between">
+                                <span class="text-slate-500">Uptime</span>
+                                <span class="text-slate-900 dark:text-white font-bold">99.99%</span>
+                            </div>
+                            <div class="w-full bg-slate-100 dark:bg-slate-700 h-2 rounded-full overflow-hidden">
+                                <div class="bg-green-500 h-full w-[99.99%]"></div>
+                            </div>
+                            <div class="flex justify-between pt-2">
+                                <span class="text-slate-500">Backup Policy</span>
+                                <span class="text-brand-light dark:text-brand-dark">DR / High Availability</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-slate-500">Compliance</span>
+                                <span class="text-slate-900 dark:text-white">NIS2 Ready</span>
+                            </div>
+                            <div class="flex justify-between pt-2">
+                                <span class="text-slate-500">Security</span>
+                                <span class="text-slate-900 dark:text-white">SIEM / Wazuh / XDR</span>
+                            </div>
+                        </div>
+                        <div class="mt-8 pt-4 border-t border-slate-100 dark:border-slate-700 text-xs text-slate-400">
+                            > _initializing secure connection...
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Social Proof / Stats -->
+    <section class="py-12 bg-white dark:bg-slate-800 border-y border-slate-200 dark:border-slate-700">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center divide-x divide-slate-100 dark:divide-slate-700">
+                <div>
+                    <div class="text-4xl font-display font-bold text-slate-900 dark:text-white mb-1">10+</div>
+                    <div class="text-sm font-medium text-slate-500 uppercase tracking-wide">Lat Doświadczenia</div>
+                </div>
+                <div>
+                    <div class="text-4xl font-display font-bold text-slate-900 dark:text-white mb-1">40%</div>
+                    <div class="text-sm font-medium text-slate-500 uppercase tracking-wide">Redukcja czasu backupu</div>
+                </div>
+                <div>
+                    <div class="text-4xl font-display font-bold text-slate-900 dark:text-white mb-1">NIS2</div>
+                    <div class="text-sm font-medium text-slate-500 uppercase tracking-wide">Standard Bezpieczeństwa</div>
+                </div>
+                <div>
+                    <div class="text-4xl font-display font-bold text-slate-900 dark:text-white mb-1">HA</div>
+                    <div class="text-sm font-medium text-slate-500 uppercase tracking-wide">Architektura High Avail.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Offer / Expertise Rows -->
+    <section id="expertise" class="py-24 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="font-display text-3xl md:text-4xl font-bold mb-4 text-slate-900 dark:text-white">Kompetencje Techniczne</h2>
+                <p class="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
+                    Kompleksowe zarządzanie infrastrukturą z naciskiem na stabilność, wydajność i zgodność z regulacjami.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Card 1: SysAdmin -->
+                <div class="group p-8 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-brand-light dark:hover:border-brand-dark transition-all duration-300 shadow-sm hover:shadow-xl rounded-sm relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-24 h-24 bg-brand-light/10 dark:bg-brand-dark/10 rounded-bl-full -mr-4 -mt-4 transition-transform group-hover:scale-110"></div>
+                    <i class="fas fa-server text-4xl text-brand-light dark:text-brand-dark mb-6"></i>
+                    <h3 class="text-xl font-bold mb-3 text-slate-900 dark:text-white">Administracja Hybrydowa</h3>
+                    <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed mb-4">
+                        Zarządzanie środowiskami Linux i Windows Server. Kompleksowa obsługa wirtualizacji (Proxmox, Docker) oraz infrastruktury chmurowej (GCP, Terraform).
+                    </p>
+                    <ul class="text-sm text-slate-500 space-y-1">
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Linux / Windows Server</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Proxmox Clusters</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Konteneryzacja (Docker/ECS)</li>
+                    </ul>
+                </div>
+
+                <!-- Card 2: Security -->
+                <div class="group p-8 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-brand-light dark:hover:border-brand-dark transition-all duration-300 shadow-sm hover:shadow-xl rounded-sm relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-24 h-24 bg-brand-light/10 dark:bg-brand-dark/10 rounded-bl-full -mr-4 -mt-4 transition-transform group-hover:scale-110"></div>
+                    <i class="fas fa-shield-alt text-4xl text-brand-light dark:text-brand-dark mb-6"></i>
+                    <h3 class="text-xl font-bold mb-3 text-slate-900 dark:text-white">Bezpieczeństwo i NIS2</h3>
+                    <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed mb-4">
+                        Wdrażanie polityk bezpieczeństwa zgodnych z dyrektywą NIS2. Konfiguracja SIEM/XDR oraz zarządzanie procedurami Disaster Recovery.
+                    </p>
+                    <ul class="text-sm text-slate-500 space-y-1">
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Backup & Disaster Recovery</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Monitoring (Wazuh, SIEM)</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>VPN & Network Security</li>
+                    </ul>
+                </div>
+
+                <!-- Card 3: Network & Data -->
+                <div class="group p-8 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-brand-light dark:hover:border-brand-dark transition-all duration-300 shadow-sm hover:shadow-xl rounded-sm relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-24 h-24 bg-brand-light/10 dark:bg-brand-dark/10 rounded-bl-full -mr-4 -mt-4 transition-transform group-hover:scale-110"></div>
+                    <i class="fas fa-network-wired text-4xl text-brand-light dark:text-brand-dark mb-6"></i>
+                    <h3 class="text-xl font-bold mb-3 text-slate-900 dark:text-white">Sieci i Bazy Danych</h3>
+                    <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed mb-4">
+                        Projektowanie i utrzymanie sieci LAN/WAN (Mikrotik, TCP/IP). Administracja i optymalizacja baz danych SQL w środowiskach produkcyjnych.
+                    </p>
+                    <ul class="text-sm text-slate-500 space-y-1">
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>MS SQL, PostgreSQL, Firebird</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Konfiguracja LAN/WAN</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Systemy ERP</li>
+                    </ul>
+                </div>
+
+                <!-- Card 4: Automation -->
+                <div class="group p-8 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-brand-light dark:hover:border-brand-dark transition-all duration-300 shadow-sm hover:shadow-xl rounded-sm relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-24 h-24 bg-brand-light/10 dark:bg-brand-dark/10 rounded-bl-full -mr-4 -mt-4 transition-transform group-hover:scale-110"></div>
+                    <i class="fas fa-code text-4xl text-brand-light dark:text-brand-dark mb-6"></i>
+                    <h3 class="text-xl font-bold mb-3 text-slate-900 dark:text-white">Automatyzacja (DevOps)</h3>
+                    <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed mb-4">
+                        Tworzenie skryptów automatyzujących rutynowe zadania, raportowanie i przetwarzanie danych. Infrastructure as Code.
+                    </p>
+                    <ul class="text-sm text-slate-500 space-y-1">
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Python (Pandas), Bash</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Ansible / Terraform</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Integracje API / CI/CD</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-24 bg-gray-100 dark:bg-slate-900/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-12">
+                <div>
+                    <h2 class="font-display text-3xl font-bold text-slate-900 dark:text-white">Wybrane Projekty</h2>
+                    <p class="text-slate-500 mt-2">Realizacje wspierające bezpieczeństwo i automatyzację.</p>
+                </div>
+                <a href="https://github.com" target="_blank" class="hidden md:block text-brand-light dark:text-brand-dark font-semibold hover:underline mt-4 md:mt-0">
+                    Zobacz na Github <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-6">
+                <!-- Project 1 -->
+                <div class="bg-white dark:bg-slate-800 p-6 border-l-4 border-brand-light dark:border-brand-dark shadow-sm">
+                    <div class="flex justify-between items-start mb-4">
+                        <h3 class="text-lg font-bold text-slate-900 dark:text-white">Integracja ESET Protect z Wazuh</h3>
+                        <span class="px-2 py-1 bg-slate-100 dark:bg-slate-700 text-xs rounded text-slate-500">SIEM</span>
+                    </div>
+                    <p class="text-slate-600 dark:text-slate-400 text-sm mb-4">
+                        Zbudowanie zintegrowanego systemu monitoringu bezpieczeństwa. Wykorzystanie Pythona i Dockera do korelacji zdarzeń i alertowania w czasie rzeczywistym.
+                    </p>
+                    <div class="flex gap-2">
+                        <span class="text-xs font-mono px-2 py-1 bg-gray-100 dark:bg-slate-900 text-slate-600 dark:text-slate-400">Python</span>
+                        <span class="text-xs font-mono px-2 py-1 bg-gray-100 dark:bg-slate-900 text-slate-600 dark:text-slate-400">Docker</span>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="bg-white dark:bg-slate-800 p-6 border-l-4 border-brand-accent shadow-sm">
+                    <div class="flex justify-between items-start mb-4">
+                        <h3 class="text-lg font-bold text-slate-900 dark:text-white">Migracja Poczty i Kubernetes</h3>
+                        <span class="px-2 py-1 bg-slate-100 dark:bg-slate-700 text-xs rounded text-slate-500">Cloud</span>
+                    </div>
+                    <p class="text-slate-600 dark:text-slate-400 text-sm mb-4">
+                        Automatyzacja procesów migracji kont pocztowych przy użyciu skryptów Python. Wdrożenie i utrzymanie klastrów w architekturze Cloud/Kubernetes.
+                    </p>
+                    <div class="flex gap-2">
+                        <span class="text-xs font-mono px-2 py-1 bg-gray-100 dark:bg-slate-900 text-slate-600 dark:text-slate-400">Kubernetes</span>
+                        <span class="text-xs font-mono px-2 py-1 bg-gray-100 dark:bg-slate-900 text-slate-600 dark:text-slate-400">Python</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-24 relative overflow-hidden bg-slate-900">
+        <!-- Abstract Decoration -->
+        <div class="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 bg-brand-light opacity-20 blur-[100px] rounded-full"></div>
+        <div class="absolute bottom-0 left-0 -ml-20 -mb-20 w-96 h-96 bg-brand-accent opacity-20 blur-[100px] rounded-full"></div>
+
+        <div class="relative max-w-4xl mx-auto px-4 text-center">
+            <h2 class="font-display text-4xl md:text-5xl font-bold text-white mb-6">
+                Gotowy na stabilną infrastrukturę?
+            </h2>
+            <p class="text-slate-300 text-lg mb-10 max-w-2xl mx-auto">
+                Skontaktuj się, aby omówić, jak mogę wesprzeć dział IT w firmie SALTUS. Oferuję wiedzę, proaktywne podejście i pełną dyspozycyjność od 2025 roku.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#contact" class="inline-flex items-center justify-center px-8 py-4 bg-white text-slate-900 font-bold hover:bg-gray-100 transition rounded-sm">
+                    <i class="fas fa-paper-plane mr-2"></i> Wyślij Wiadomość
+                </a>
+                <a href="tel:+48577789797" class="inline-flex items-center justify-center px-8 py-4 border border-white/30 text-white font-bold hover:bg-white/10 transition rounded-sm">
+                    <i class="fas fa-phone mr-2"></i> 577 789 797
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section id="contact" class="py-24 bg-white dark:bg-slate-800">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h3 class="font-display text-2xl font-bold text-slate-900 dark:text-white">Formularz Kontaktowy</h3>
+                <p class="text-slate-500">Zapraszam do bezpośredniego kontaktu w sprawie rekrutacji.</p>
+            </div>
+            
+            <form class="space-y-6">
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div>
+                        <label for="name" class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">Imię i Nazwisko</label>
+                        <input type="text" id="name" class="w-full px-4 py-3 bg-gray-50 dark:bg-slate-900 border border-gray-300 dark:border-slate-700 rounded-sm focus:outline-none focus:border-brand-light dark:focus:border-brand-dark transition text-slate-900 dark:text-white">
+                    </div>
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">Email Firmowy</label>
+                        <input type="email" id="email" class="w-full px-4 py-3 bg-gray-50 dark:bg-slate-900 border border-gray-300 dark:border-slate-700 rounded-sm focus:outline-none focus:border-brand-light dark:focus:border-brand-dark transition text-slate-900 dark:text-white">
+                    </div>
+                </div>
+                <div>
+                    <label for="message" class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">Wiadomość</label>
+                    <textarea id="message" rows="4" class="w-full px-4 py-3 bg-gray-50 dark:bg-slate-900 border border-gray-300 dark:border-slate-700 rounded-sm focus:outline-none focus:border-brand-light dark:focus:border-brand-dark transition text-slate-900 dark:text-white"></textarea>
+                </div>
+                <div class="text-right">
+                    <button type="submit" class="px-8 py-3 bg-brand-light dark:bg-brand-dark text-white dark:text-slate-900 font-bold hover:opacity-90 transition rounded-sm shadow-md">
+                        Wyślij Zgłoszenie
+                    </button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-50 dark:bg-slate-900 border-t border-gray-200 dark:border-slate-800 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center">
+            <div class="mb-4 md:mb-0">
+                <span class="font-display font-bold text-xl text-slate-900 dark:text-white">Krzysztof Olszewski</span>
+                <p class="text-slate-500 text-sm mt-1">Administrator Systemów Informatycznych</p>
+            </div>
+            <div class="flex space-x-6 text-slate-400">
+                <a href="mailto:k.olszewski@o2.pl" class="hover:text-brand-light dark:hover:text-brand-dark transition"><i class="fas fa-envelope"></i></a>
+                <a href="#" class="hover:text-brand-light dark:hover:text-brand-dark transition"><i class="fab fa-github"></i></a>
+                <a href="#" class="hover:text-brand-light dark:hover:text-brand-dark transition"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 text-center mt-8">
+            <p class="text-xs text-slate-400 max-w-2xl mx-auto">
+                Wyrażam zgodę na przetwarzanie moich danych osobowych w celu prowadzenia rekrutacji na stanowisko Administrator Systemów Informatycznych.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        
+        // Check local storage or system preference
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+
+        themeToggleBtn.addEventListener('click', () => {
+            document.documentElement.classList.toggle('dark');
+            if (document.documentElement.classList.contains('dark')) {
+                localStorage.theme = 'dark';
+            } else {
+                localStorage.theme = 'light';
+            }
+        });
+    </script>
+</body>
+</html>
