@@ -293,7 +293,7 @@
                 Gotowy na stabilną infrastrukturę?
             </h2>
             <p class="text-slate-300 text-lg mb-10 max-w-2xl mx-auto">
-                Skontaktuj się, aby omówić, jak mogę wesprzeć dział IT w firmie SALTUS. Oferuję wiedzę, proaktywne podejście i pełną dyspozycyjność od 2025 roku.
+                Skontaktuj się, aby omówić, jak mogę wesprzeć dział IT w Twojej firmie. Oferuję wiedzę, proaktywne podejście i pełną dyspozycyjność od 2025 roku.
             </p>
             <div class="flex flex-col sm:flex-row justify-center gap-4">
                 <a href="#contact" class="inline-flex items-center justify-center px-8 py-4 bg-white text-slate-900 font-bold hover:bg-gray-100 transition rounded-sm">
@@ -306,37 +306,34 @@
         </div>
     </section>
 
-    <!-- Contact Form Section -->
+    <!-- Contact / Schema Section -->
     <section id="contact" class="py-24 bg-white dark:bg-slate-800">
-        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12">
-                <h3 class="font-display text-2xl font-bold text-slate-900 dark:text-white">Formularz Kontaktowy</h3>
-                <p class="text-slate-500">Zapraszam do bezpośredniego kontaktu w sprawie rekrutacji.</p>
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="mb-8">
+                <h3 class="font-display text-2xl font-bold text-slate-900 dark:text-white">SME Infrastruktura — Schemat NIS2</h3>
+                <p class="text-slate-500">Kliknij w miniaturę, aby powiększyć schemat infrastruktury.</p>
             </div>
-            
-            <form class="space-y-6">
-                <div class="grid md:grid-cols-2 gap-6">
-                    <div>
-                        <label for="name" class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">Imię i Nazwisko</label>
-                        <input type="text" id="name" class="w-full px-4 py-3 bg-gray-50 dark:bg-slate-900 border border-gray-300 dark:border-slate-700 rounded-sm focus:outline-none focus:border-brand-light dark:focus:border-brand-dark transition text-slate-900 dark:text-white">
-                    </div>
-                    <div>
-                        <label for="email" class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">Email Firmowy</label>
-                        <input type="email" id="email" class="w-full px-4 py-3 bg-gray-50 dark:bg-slate-900 border border-gray-300 dark:border-slate-700 rounded-sm focus:outline-none focus:border-brand-light dark:focus:border-brand-dark transition text-slate-900 dark:text-white">
-                    </div>
-                </div>
-                <div>
-                    <label for="message" class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">Wiadomość</label>
-                    <textarea id="message" rows="4" class="w-full px-4 py-3 bg-gray-50 dark:bg-slate-900 border border-gray-300 dark:border-slate-700 rounded-sm focus:outline-none focus:border-brand-light dark:focus:border-brand-dark transition text-slate-900 dark:text-white"></textarea>
-                </div>
-                <div class="text-right">
-                    <button type="submit" class="px-8 py-3 bg-brand-light dark:bg-brand-dark text-white dark:text-slate-900 font-bold hover:opacity-90 transition rounded-sm shadow-md">
-                        Wyślij Zgłoszenie
-                    </button>
-                </div>
-            </form>
+
+            <div>
+                <button id="open-schema" aria-controls="schema-modal" class="inline-block">
+                    <img src="infra2025NIS2.png" alt="SME infrastructure schema" class="mx-auto w-full max-w-xl rounded-sm shadow-lg cursor-pointer hover:scale-105 transition-transform" />
+                </button>
+            </div>
         </div>
     </section>
+
+    <!-- Modal: Schema Preview -->
+    <div id="schema-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4">
+        <div id="schema-modal-backdrop" class="absolute inset-0 bg-black/60 backdrop-blur-sm"></div>
+        <div class="relative z-10 max-w-5xl w-full bg-white dark:bg-slate-900 rounded-md overflow-hidden shadow-2xl">
+            <div class="flex justify-end p-3">
+                <button id="close-schema" class="text-slate-700 dark:text-slate-200 text-2xl leading-none hover:text-brand-light" aria-label="Zamknij">&times;</button>
+            </div>
+            <div class="p-4">
+                <img src="infra2025NIS2.png" alt="SME infrastructure schema large" class="w-full h-auto rounded-sm" />
+            </div>
+        </div>
+    </div>
 
     <!-- Footer -->
     <footer class="bg-gray-50 dark:bg-slate-900 border-t border-gray-200 dark:border-slate-800 py-12">
@@ -377,6 +374,33 @@
                 localStorage.theme = 'light';
             }
         });
+
+        // Modal: Schema preview open/close
+        const openSchemaBtn = document.getElementById('open-schema');
+        const schemaModal = document.getElementById('schema-modal');
+        const closeSchemaBtn = document.getElementById('close-schema');
+        const schemaBackdrop = document.getElementById('schema-modal-backdrop');
+
+        function showSchema() {
+            if (!schemaModal) return;
+            schemaModal.classList.remove('hidden');
+            schemaModal.classList.add('flex');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function hideSchema() {
+            if (!schemaModal) return;
+            schemaModal.classList.remove('flex');
+            schemaModal.classList.add('hidden');
+            document.body.style.overflow = '';
+        }
+
+        openSchemaBtn?.addEventListener('click', (e) => { e.preventDefault(); showSchema(); });
+        closeSchemaBtn?.addEventListener('click', hideSchema);
+        schemaBackdrop?.addEventListener('click', hideSchema);
+        document.addEventListener('keydown', (e) => { if (e.key === 'Escape') hideSchema(); });
+
+        
     </script>
 </body>
 </html>
