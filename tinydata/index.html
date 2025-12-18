@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="pl" class="light scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Krzysztof Olszewski | E-commerce & Data Growth Expert</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            500: '#0ea5e9', // Sky blue for trust (Insurance/Finance)
+                            600: '#0284c7',
+                            800: '#075985',
+                            900: '#0c4a6e',
+                        },
+                        accent: {
+                            500: '#8b5cf6', // Violet for AI/Tech
+                            600: '#7c3aed',
+                        },
+                        dark: {
+                            bg: '#0f172a',
+                            card: '#1e293b',
+                            border: '#334155'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    backgroundImage: {
+                        'circuit-light': "url('data:image/svg+xml,%3Csvg width=\"80\" height=\"80\" viewBox=\"0 0 80 80\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cg fill=\"none\" fill-rule=\"evenodd\"%3E%3Cg fill=\"%230ea5e9\" fill-opacity=\"0.05\"%3E%3Cpath d=\"M50 50c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c0 5.523-4.477 10-10 10s-10-4.477-10-10 4.477-10 10-10zM10 10c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c0 5.523-4.477 10-10 10S0 25.523 0 20s4.477-10 10-10zm10 8c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8zm40 40c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8z\" /%3E%3C/g%3E%3C/g%3E%3C/svg%3E')",
+                        'circuit-dark': "url('data:image/svg+xml,%3Csvg width=\"80\" height=\"80\" viewBox=\"0 0 80 80\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cg fill=\"none\" fill-rule=\"evenodd\"%3E%3Cg fill=\"%238b5cf6\" fill-opacity=\"0.05\"%3E%3Cpath d=\"M50 50c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c0 5.523-4.477 10-10 10s-10-4.477-10-10 4.477-10 10-10zM10 10c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c0 5.523-4.477 10-10 10S0 25.523 0 20s4.477-10 10-10zm10 8c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8zm40 40c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8z\" /%3E%3C/g%3E%3C/g%3E%3C/svg%3E')",
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        .glass {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+        .dark .glass {
+            background: rgba(30, 41, 59, 0.7);
+        }
+        .glass-card {
+             background: rgba(255, 255, 255, 0.9);
+             backdrop-filter: blur(20px);
+        }
+        .dark .glass-card {
+             background: rgba(30, 41, 59, 0.9);
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900 dark:bg-dark-bg dark:text-white transition-colors duration-300">
+
+    <!-- Navbar -->
+    <nav class="fixed w-full z-50 glass border-b border-slate-200 dark:border-dark-border transition-colors duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex-shrink-0 flex items-center gap-2">
+                    <div class="w-8 h-8 bg-primary-600 rounded-lg flex items-center justify-center text-white font-bold">KO</div>
+                    <span class="font-bold text-xl tracking-tight hidden sm:block">Krzysztof Olszewski</span>
+                </div>
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="#about" class="text-sm font-medium hover:text-primary-600 transition">O mnie</a>
+                    <a href="#stats" class="text-sm font-medium hover:text-primary-600 transition">Wyniki</a>
+                    <a href="#experience" class="text-sm font-medium hover:text-primary-600 transition">Doświadczenie</a>
+                    <a href="#skills" class="text-sm font-medium hover:text-primary-600 transition">Technologie</a>
+                </div>
+                <div class="flex items-center gap-4">
+                    <button id="theme-toggle" class="p-2 rounded-full hover:bg-slate-200 dark:hover:bg-slate-700 transition">
+                        <i data-lucide="moon" class="w-5 h-5 block dark:hidden"></i>
+                        <i data-lucide="sun" class="w-5 h-5 hidden dark:block text-yellow-400"></i>
+                    </button>
+                    <a href="#contact" class="px-5 py-2.5 bg-primary-600 hover:bg-primary-700 text-white text-sm font-semibold rounded-full shadow-lg hover:shadow-primary-500/30 transition-all transform hover:-translate-y-0.5">
+                        Kontakt
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="about" class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden bg-circuit-light dark:bg-circuit-dark transition-all duration-300">
+        <!-- Background Gradient -->
+        <div class="absolute inset-0 bg-gradient-to-b from-transparent via-slate-50/50 to-slate-50 dark:via-dark-bg/50 dark:to-dark-bg pointer-events-none"></div>
+        <div class="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 bg-primary-500/20 rounded-full blur-3xl dark:bg-primary-500/10"></div>
+        <div class="absolute bottom-0 left-0 -ml-20 -mb-20 w-96 h-96 bg-accent-500/20 rounded-full blur-3xl dark:bg-accent-500/10"></div>
+
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-slate-200 shadow-sm dark:bg-dark-card dark:border-dark-border mb-8 animate-fade-in-up">
+                <span class="flex h-2 w-2 relative">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                </span>
+                <span class="text-xs font-semibold uppercase tracking-wide text-slate-600 dark:text-slate-300">Dostępny od zaraz</span>
+            </div>
+
+            <h1 class="text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tight mb-6 text-slate-900 dark:text-white">
+                Analiza Danych spotyka <br class="hidden md:block" />
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary-600 to-accent-600">Skalowalny E-commerce</span>
+            </h1>
+
+            <p class="mt-4 max-w-2xl mx-auto text-xl text-slate-600 dark:text-slate-400">
+                Marketing Manager & Data Analyst. Łączę inżynierską precyzję (SQL, Python) ze strategią sprzedaży (Google Ads, SEO). 
+                Przekuwam surowe dane w konkretne decyzje biznesowe.
+            </p>
+
+            <div class="mt-10 flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#contact" class="px-8 py-4 bg-slate-900 dark:bg-white text-white dark:text-slate-900 font-bold rounded-lg hover:shadow-xl transition transform hover:-translate-y-1">
+                    Umów rozmowę
+                </a>
+                <a href="#experience" class="px-8 py-4 bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 font-semibold rounded-lg hover:bg-slate-50 dark:hover:bg-slate-700 transition">
+                    Zobacz Case Studies
+                </a>
+            </div>
+
+            <!-- Tech Stack Pills -->
+            <div class="mt-12 pt-8 border-t border-slate-200 dark:border-slate-800 flex flex-wrap justify-center gap-6 opacity-70 grayscale hover:grayscale-0 transition-all duration-500">
+                <span class="flex items-center gap-2 font-semibold"><i data-lucide="bar-chart-2" class="w-5 h-5"></i> GA4 & GTM</span>
+                <span class="flex items-center gap-2 font-semibold"><i data-lucide="database" class="w-5 h-5"></i> SQL / BigQuery</span>
+                <span class="flex items-center gap-2 font-semibold"><i data-lucide="code" class="w-5 h-5"></i> Python</span>
+                <span class="flex items-center gap-2 font-semibold"><i data-lucide="bot" class="w-5 h-5"></i> GenAI Automation</span>
+                <span class="flex items-center gap-2 font-semibold"><i data-lucide="shopping-bag" class="w-5 h-5"></i> Ads & PPC</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Value Stats Section -->
+    <section id="stats" class="py-16 bg-white dark:bg-dark-card border-y border-slate-100 dark:border-dark-border">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center divide-y md:divide-y-0 md:divide-x divide-slate-100 dark:divide-slate-700">
+                <div class="p-6">
+                    <div class="text-5xl font-extrabold text-primary-600 mb-2">9x</div>
+                    <div class="text-sm font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">Wzrost Przychodów</div>
+                    <p class="mt-2 text-slate-600 dark:text-slate-300">Wdrożenie strategii dla Segregatory24</p>
+                </div>
+                <div class="p-6">
+                    <div class="text-5xl font-extrabold text-accent-500 mb-2">+20%</div>
+                    <div class="text-sm font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">Wzrost Konwersji</div>
+                    <p class="mt-2 text-slate-600 dark:text-slate-300">Optymalizacja globalna w Tapflo Group</p>
+                </div>
+                <div class="p-6">
+                    <div class="text-5xl font-extrabold text-emerald-500 mb-2">GenAI</div>
+                    <div class="text-sm font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">Automatyzacja</div>
+                    <p class="mt-2 text-slate-600 dark:text-slate-300">Optymalizacja procesów contentowych i SEO</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Competencies (Offer Rows) -->
+    <section class="py-20 bg-slate-50 dark:bg-dark-bg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-3xl font-bold text-slate-900 dark:text-white">Kompetencje dla Nowoczesnego Biznesu</h2>
+                <p class="mt-4 text-lg text-slate-600 dark:text-slate-400">
+                    Idealny kandydat dla firm takich jak Saltus, szukających synergii między marketingiem a technologią.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="group bg-white dark:bg-dark-card p-8 rounded-2xl border border-slate-200 dark:border-dark-border shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+                    <div class="w-12 h-12 bg-blue-100 dark:bg-blue-900/30 rounded-lg flex items-center justify-center text-blue-600 mb-6 group-hover:scale-110 transition-transform">
+                        <i data-lucide="layout-dashboard" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-3">Business Intelligence & KPI</h3>
+                    <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
+                        Budowa zaawansowanych dashboardów (Looker, Superset) i analiza SQL. Monitorowanie ROAS w czasie rzeczywistym, by budżet marketingowy zawsze pracował na zysk.
+                    </p>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="group bg-white dark:bg-dark-card p-8 rounded-2xl border border-slate-200 dark:border-dark-border shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+                    <div class="w-12 h-12 bg-purple-100 dark:bg-purple-900/30 rounded-lg flex items-center justify-center text-purple-600 mb-6 group-hover:scale-110 transition-transform">
+                        <i data-lucide="zap" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-3">PPC & Performance Marketing</h3>
+                    <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
+                        Zarządzanie kampaniami Google Ads i Meta Ads. Optymalizacja konwersji (CRO) oraz wdrażanie strategii SXO dla maksymalizacji widoczności organicznej i płatnej.
+                    </p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="group bg-white dark:bg-dark-card p-8 rounded-2xl border border-slate-200 dark:border-dark-border shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+                    <div class="w-12 h-12 bg-emerald-100 dark:bg-emerald-900/30 rounded-lg flex items-center justify-center text-emerald-600 mb-6 group-hover:scale-110 transition-transform">
+                        <i data-lucide="cpu" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-3">AI & Automatyzacja</h3>
+                    <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
+                        Wdrażanie rozwiązań GenAI (Azure OpenAI, Python) do automatyzacji tworzenia treści, analizy konkurencji oraz obróbki dużych zbiorów danych produktowych.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Timeline -->
+    <section id="experience" class="py-20 bg-white dark:bg-dark-card overflow-hidden">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-slate-900 dark:text-white mb-12 text-center">Ścieżka Kariery</h2>
+
+            <div class="relative border-l-2 border-slate-200 dark:border-slate-700 ml-4 md:ml-0 space-y-12">
+                <!-- Exp 1 -->
+                <div class="relative pl-8 md:pl-0">
+                    <div class="absolute -left-[9px] top-0 w-5 h-5 bg-primary-600 rounded-full border-4 border-white dark:border-dark-card"></div>
+                    <div class="md:grid md:grid-cols-12 md:gap-8">
+                        <div class="md:col-span-4 text-left md:text-right mb-2 md:mb-0">
+                            <span class="block text-sm text-slate-500 font-semibold">2024 - Obecnie</span>
+                            <span class="block text-lg font-bold text-slate-900 dark:text-white">Tapflo Group</span>
+                            <span class="block text-sm text-slate-500">Tczew (Global)</span>
+                        </div>
+                        <div class="md:col-span-8">
+                            <h3 class="text-xl font-bold text-primary-600 mb-2">Global Digital Marketing Specialist & Data Analyst</h3>
+                            <p class="text-slate-600 dark:text-slate-300 mb-4">
+                                Zaawansowana analityka na rynkach globalnych. Wzrost konwersji o 20% dzięki optymalizacji lejka. Budowa dashboardów KPI w oparciu o GA4 i BigQuery. Automatyzacja marketingu z użyciem GenAI.
+                            </p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-2 py-1 bg-slate-100 dark:bg-slate-800 text-xs rounded text-slate-600 dark:text-slate-400">GA4</span>
+                                <span class="px-2 py-1 bg-slate-100 dark:bg-slate-800 text-xs rounded text-slate-600 dark:text-slate-400">Python</span>
+                                <span class="px-2 py-1 bg-slate-100 dark:bg-slate-800 text-xs rounded text-slate-600 dark:text-slate-400">PPC Global</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Exp 2 -->
+                <div class="relative pl-8 md:pl-0">
+                    <div class="absolute -left-[9px] top-0 w-5 h-5 bg-slate-400 rounded-full border-4 border-white dark:border-dark-card"></div>
+                    <div class="md:grid md:grid-cols-12 md:gap-8">
+                        <div class="md:col-span-4 text-left md:text-right mb-2 md:mb-0">
+                            <span class="block text-sm text-slate-500 font-semibold">2018 - 2023</span>
+                            <span class="block text-lg font-bold text-slate-900 dark:text-white">Segregatory24 / Achilles</span>
+                            <span class="block text-sm text-slate-500">Gdańsk</span>
+                        </div>
+                        <div class="md:col-span-8">
+                            <h3 class="text-xl font-bold text-slate-800 dark:text-slate-200 mb-2">E-commerce Developer / Project Manager</h3>
+                            <p class="text-slate-600 dark:text-slate-300 mb-4">
+                                <strong class="text-primary-600">9-krotny wzrost przychodów.</strong> Zarządzanie techniczną i marketingową stroną projektu. Wdrożenie SEO, Google Ads oraz automatyzacji cenników.
+                            </p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-2 py-1 bg-slate-100 dark:bg-slate-800 text-xs rounded text-slate-600 dark:text-slate-400">E-commerce Growth</span>
+                                <span class="px-2 py-1 bg-slate-100 dark:bg-slate-800 text-xs rounded text-slate-600 dark:text-slate-400">UX/UI</span>
+                                <span class="px-2 py-1 bg-slate-100 dark:bg-slate-800 text-xs rounded text-slate-600 dark:text-slate-400">Branding</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                 <!-- Exp 3 -->
+                 <div class="relative pl-8 md:pl-0">
+                    <div class="absolute -left-[9px] top-0 w-5 h-5 bg-slate-400 rounded-full border-4 border-white dark:border-dark-card"></div>
+                    <div class="md:grid md:grid-cols-12 md:gap-8">
+                        <div class="md:col-span-4 text-left md:text-right mb-2 md:mb-0">
+                            <span class="block text-sm text-slate-500 font-semibold">2014 - 2017</span>
+                            <span class="block text-lg font-bold text-slate-900 dark:text-white">Achilles Polska</span>
+                            <span class="block text-sm text-slate-500">Gdańsk</span>
+                        </div>
+                        <div class="md:col-span-8">
+                            <h3 class="text-xl font-bold text-slate-800 dark:text-slate-200 mb-2">Digital Marketing Specialist</h3>
+                            <p class="text-slate-600 dark:text-slate-300 mb-4">
+                                Wdrożenie systemu Web2Print. Automatyzacja obróbki danych. Prowadzenie kampanii SEO/SEM.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills / Tools Grid -->
+    <section id="skills" class="py-20 bg-slate-900 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center mb-12">
+                <h2 class="text-3xl font-bold">Narzędzia pracy</h2>
+                <p class="text-slate-400 max-w-lg text-right md:text-right mt-4 md:mt-0">
+                    Technologia to środek do celu. Celem jest optymalizacja biznesu.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
+                <!-- Skill Items -->
+                <div class="p-4 bg-white/10 rounded-lg text-center hover:bg-white/20 transition cursor-default">
+                    <div class="text-lg font-bold">Google Ads</div>
+                    <div class="text-xs text-slate-300 mt-1">Expert</div>
+                </div>
+                <div class="p-4 bg-white/10 rounded-lg text-center hover:bg-white/20 transition cursor-default">
+                    <div class="text-lg font-bold">GA4</div>
+                    <div class="text-xs text-slate-300 mt-1">Analytics</div>
+                </div>
+                <div class="p-4 bg-white/10 rounded-lg text-center hover:bg-white/20 transition cursor-default">
+                    <div class="text-lg font-bold">Python</div>
+                    <div class="text-xs text-slate-300 mt-1">Pandas/Auto</div>
+                </div>
+                <div class="p-4 bg-white/10 rounded-lg text-center hover:bg-white/20 transition cursor-default">
+                    <div class="text-lg font-bold">SQL</div>
+                    <div class="text-xs text-slate-300 mt-1">Data Query</div>
+                </div>
+                <div class="p-4 bg-white/10 rounded-lg text-center hover:bg-white/20 transition cursor-default">
+                    <div class="text-lg font-bold">Looker</div>
+                    <div class="text-xs text-slate-300 mt-1">Viz</div>
+                </div>
+                 <div class="p-4 bg-white/10 rounded-lg text-center hover:bg-white/20 transition cursor-default">
+                    <div class="text-lg font-bold">Shopify/Woo</div>
+                    <div class="text-xs text-slate-300 mt-1">Platforms</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact / CTA Section (NO FORM) -->
+    <section id="contact" class="py-24 bg-primary-50 dark:bg-slate-950 relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-96 h-96 bg-primary-500/10 rounded-full blur-3xl transform translate-x-1/2 -translate-y-1/2"></div>
+        <div class="absolute bottom-0 left-0 w-96 h-96 bg-accent-500/10 rounded-full blur-3xl transform -translate-x-1/2 translate-y-1/2"></div>
+        
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+            
+            <h2 class="text-4xl md:text-5xl font-extrabold text-slate-900 dark:text-white mb-6">
+                Porozmawiajmy o współpracy
+            </h2>
+            <p class="text-xl text-slate-600 dark:text-slate-300 mb-12 max-w-2xl mx-auto">
+                Jestem gotowy wesprzeć Państwa zespół jako Marketing/Brand Manager. Wykorzystajmy moje doświadczenie do skalowania sprzedaży w Saltus i poza nim.
+            </p>
+            
+            <div class="flex flex-col md:flex-row gap-6 justify-center items-center">
+                <!-- Phone Card -->
+                <a href="tel:577789797" class="group flex items-center gap-6 p-6 bg-white dark:bg-dark-card rounded-2xl shadow-xl hover:shadow-2xl hover:shadow-primary-500/20 border border-slate-200 dark:border-slate-700 transition-all duration-300 transform hover:-translate-y-1 w-full md:w-auto min-w-[320px]">
+                    <div class="w-16 h-16 bg-primary-100 dark:bg-primary-900/40 rounded-full flex items-center justify-center text-primary-600 dark:text-primary-400 group-hover:scale-110 transition-transform">
+                        <i data-lucide="phone" class="w-8 h-8"></i>
+                    </div>
+                    <div class="text-left">
+                        <span class="block text-sm font-bold text-slate-400 uppercase tracking-wider">Zadzwoń teraz</span>
+                        <span class="block text-2xl font-bold text-slate-900 dark:text-white group-hover:text-primary-600 transition-colors">577 789 797</span>
+                    </div>
+                </a>
+
+                <!-- Email Card -->
+                <a href="mailto:k.olszewski@o2.pl" class="group flex items-center gap-6 p-6 bg-slate-900 dark:bg-slate-800 rounded-2xl shadow-xl hover:shadow-2xl border border-transparent dark:border-slate-700 transition-all duration-300 transform hover:-translate-y-1 w-full md:w-auto min-w-[320px]">
+                    <div class="w-16 h-16 bg-slate-800 dark:bg-slate-700 rounded-full flex items-center justify-center text-white group-hover:scale-110 transition-transform">
+                        <i data-lucide="mail" class="w-8 h-8"></i>
+                    </div>
+                    <div class="text-left">
+                        <span class="block text-sm font-bold text-slate-400 uppercase tracking-wider">Napisz Email</span>
+                        <span class="block text-2xl font-bold text-white group-hover:text-primary-400 transition-colors">k.olszewski@o2.pl</span>
+                    </div>
+                </a>
+            </div>
+
+            <div class="mt-12 flex flex-wrap justify-center gap-8 text-slate-500 dark:text-slate-400 font-medium">
+                <div class="flex items-center gap-2">
+                    <i data-lucide="map-pin" class="w-5 h-5 text-primary-500"></i>
+                    <span>Tczew / Gdańsk</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <i data-lucide="globe" class="w-5 h-5 text-accent-500"></i>
+                    <a href="https://tinydata.pl" class="hover:text-primary-500 transition underline decoration-dotted">tinydata.pl</a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-white dark:bg-dark-bg border-t border-slate-200 dark:border-dark-border py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-slate-500 dark:text-slate-500 text-sm">
+            <p class="mb-2">&copy; 2025 Krzysztof Olszewski. Wszelkie prawa zastrzeżone.</p>
+            <p class="text-xs text-slate-400 max-w-2xl mx-auto">
+                Wyrażam zgodę na przetwarzanie moich danych osobowych w celu prowadzenia rekrutacji na stanowisko Marketplace PPC Specialist / Marketing Manager.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Icons
+        lucide.createIcons();
+
+        // Dark Mode Logic
+        const themeToggle = document.getElementById('theme-toggle');
+        const html = document.documentElement;
+
+        // Check local storage or system preference
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            html.classList.add('dark');
+        } else {
+            html.classList.remove('dark');
+        }
+
+        themeToggle.addEventListener('click', () => {
+            html.classList.toggle('dark');
+            if (html.classList.contains('dark')) {
+                localStorage.theme = 'dark';
+            } else {
+                localStorage.theme = 'light';
+            }
+        });
+    </script>
+</body>
+</html>
